@@ -21,13 +21,14 @@ public class GameManager : MonoBehaviour
     public Text textPointEnd;
     public GameObject panelGameOver;
     public Image isYourTurn;
+    public Button btnStartGame;
 
     void Start()
     {
-        isYourTurn.enabled = false;
-        panelGameOver.SetActive(false);
-        FigureMgr.Instance.isLive = true;
-        FigureMgr.Instance.isTurn = true;
+         isYourTurn.enabled = false;
+         panelGameOver.SetActive(false);
+         FigureMgr.Instance.isLive = true;
+         FigureMgr.Instance.isTurn = false;
     }
     void Update()
     {
@@ -56,4 +57,11 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(0);
     }
     
+    public void PrepareGame(){
+        FigureMgr.Instance.isTurn = true;
+        btnStartGame.gameObject.SetActive(false);
+
+        //just for debug
+        //Debug.Log("test");
+    }
 }
